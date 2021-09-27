@@ -15,7 +15,7 @@ prepare_auto_envsubst() {
     local suffix="${NGINX_ENVSUBST_TEMPLATE_SUFFIX:-.template}"
     local upstream_fpm_template=${NGINX_ENVSUBST_TEMPLATE_UPSTREAM_FPM_FILE:-"${template_dir}/php-fpm-upstream.conf${suffix}"}
     local NGINX_SERVER_FPM_PORT="${NGINX_SERVER_FPM_PORT:-9000}"
-    local NGINX_SERVER_FPM="${NGINX_SERVER_FPM:-php}"
+    local NGINX_SERVER_FPM="${NGINX_SERVER_FPM:-"app"}"
     [ -d "$template_dir" ] || return 0
     if [ ! -w "$template_dir" ]; then
         echo >&3 "$ME: ERROR: $template_dir exists, but is not writable"
